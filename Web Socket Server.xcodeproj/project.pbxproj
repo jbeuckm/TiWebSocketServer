@@ -1,0 +1,559 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		24416B8111C4CA220047AFDD /* Build & Test */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */;
+			buildPhases = (
+				24416B8011C4CA220047AFDD /* ShellScript */,
+			);
+			dependencies = (
+				24416B8511C4CA280047AFDD /* PBXTargetDependency */,
+			);
+			name = "Build & Test";
+			productName = "Build & test";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		24DD6CF91134B3F500162E58 /* WebsocketserverModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DD6CF71134B3F500162E58 /* WebsocketserverModule.h */; };
+		24DD6CFA1134B3F500162E58 /* WebsocketserverModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* WebsocketserverModule.m */; };
+		24DE9E1111C5FE74003F90F6 /* WebsocketserverModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* WebsocketserverModuleAssets.h */; };
+		24DE9E1211C5FE74003F90F6 /* WebsocketserverModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* WebsocketserverModuleAssets.m */; };
+		6D7E4BC91704F724003CC7A8 /* BLWebSocketsServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D7E4BB11704F724003CC7A8 /* BLWebSocketsServer.h */; };
+		6D7E4BCA1704F724003CC7A8 /* BLWebSocketsServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BB21704F724003CC7A8 /* BLWebSocketsServer.m */; };
+		6D7E4BCB1704F724003CC7A8 /* base64-decode.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BB41704F724003CC7A8 /* base64-decode.c */; };
+		6D7E4BCC1704F724003CC7A8 /* client-handshake.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BB51704F724003CC7A8 /* client-handshake.c */; };
+		6D7E4BCD1704F724003CC7A8 /* client-parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BB61704F724003CC7A8 /* client-parser.c */; };
+		6D7E4BCE1704F724003CC7A8 /* client.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BB71704F724003CC7A8 /* client.c */; };
+		6D7E4BCF1704F724003CC7A8 /* daemonize.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BB81704F724003CC7A8 /* daemonize.c */; };
+		6D7E4BD01704F724003CC7A8 /* extension-deflate-frame.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BB91704F724003CC7A8 /* extension-deflate-frame.c */; };
+		6D7E4BD11704F724003CC7A8 /* extension-deflate-frame.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D7E4BBA1704F724003CC7A8 /* extension-deflate-frame.h */; };
+		6D7E4BD21704F724003CC7A8 /* extension-deflate-stream.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BBB1704F724003CC7A8 /* extension-deflate-stream.c */; };
+		6D7E4BD31704F724003CC7A8 /* extension-deflate-stream.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D7E4BBC1704F724003CC7A8 /* extension-deflate-stream.h */; };
+		6D7E4BD41704F724003CC7A8 /* extension.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BBD1704F724003CC7A8 /* extension.c */; };
+		6D7E4BD51704F724003CC7A8 /* getifaddrs.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BBE1704F724003CC7A8 /* getifaddrs.c */; };
+		6D7E4BD61704F724003CC7A8 /* getifaddrs.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D7E4BBF1704F724003CC7A8 /* getifaddrs.h */; };
+		6D7E4BD71704F724003CC7A8 /* handshake.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BC01704F724003CC7A8 /* handshake.c */; };
+		6D7E4BD81704F724003CC7A8 /* libwebsockets.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BC11704F724003CC7A8 /* libwebsockets.c */; };
+		6D7E4BD91704F724003CC7A8 /* libwebsockets.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D7E4BC21704F724003CC7A8 /* libwebsockets.h */; };
+		6D7E4BDA1704F724003CC7A8 /* output.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BC31704F724003CC7A8 /* output.c */; };
+		6D7E4BDB1704F724003CC7A8 /* parsers.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BC41704F724003CC7A8 /* parsers.c */; };
+		6D7E4BDC1704F724003CC7A8 /* private-libwebsockets.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D7E4BC51704F724003CC7A8 /* private-libwebsockets.h */; };
+		6D7E4BDD1704F724003CC7A8 /* server-handshake.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BC61704F724003CC7A8 /* server-handshake.c */; };
+		6D7E4BDE1704F724003CC7A8 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BC71704F724003CC7A8 /* server.c */; };
+		6D7E4BDF1704F724003CC7A8 /* sha-1.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BC81704F724003CC7A8 /* sha-1.c */; };
+		6D7E4BEA1705EA32003CC7A8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7E4BE91705EA32003CC7A8 /* libz.dylib */; };
+		AA747D9F0F9514B9006C5449 /* Websocketserver_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* Websocketserver_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24416B8411C4CA280047AFDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = "Web Socket Server";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		24DD6CF71134B3F500162E58 /* WebsocketserverModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebsocketserverModule.h; path = Classes/WebsocketserverModule.h; sourceTree = "<group>"; };
+		24DD6CF81134B3F500162E58 /* WebsocketserverModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebsocketserverModule.m; path = Classes/WebsocketserverModule.m; sourceTree = "<group>"; };
+		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
+		24DE9E0F11C5FE74003F90F6 /* WebsocketserverModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebsocketserverModuleAssets.h; path = Classes/WebsocketserverModuleAssets.h; sourceTree = "<group>"; };
+		24DE9E1011C5FE74003F90F6 /* WebsocketserverModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebsocketserverModuleAssets.m; path = Classes/WebsocketserverModuleAssets.m; sourceTree = "<group>"; };
+		6D7E4BB11704F724003CC7A8 /* BLWebSocketsServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLWebSocketsServer.h; sourceTree = "<group>"; };
+		6D7E4BB21704F724003CC7A8 /* BLWebSocketsServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLWebSocketsServer.m; sourceTree = "<group>"; };
+		6D7E4BB41704F724003CC7A8 /* base64-decode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "base64-decode.c"; sourceTree = "<group>"; };
+		6D7E4BB51704F724003CC7A8 /* client-handshake.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "client-handshake.c"; sourceTree = "<group>"; };
+		6D7E4BB61704F724003CC7A8 /* client-parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "client-parser.c"; sourceTree = "<group>"; };
+		6D7E4BB71704F724003CC7A8 /* client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = client.c; sourceTree = "<group>"; };
+		6D7E4BB81704F724003CC7A8 /* daemonize.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = daemonize.c; sourceTree = "<group>"; };
+		6D7E4BB91704F724003CC7A8 /* extension-deflate-frame.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "extension-deflate-frame.c"; sourceTree = "<group>"; };
+		6D7E4BBA1704F724003CC7A8 /* extension-deflate-frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "extension-deflate-frame.h"; sourceTree = "<group>"; };
+		6D7E4BBB1704F724003CC7A8 /* extension-deflate-stream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "extension-deflate-stream.c"; sourceTree = "<group>"; };
+		6D7E4BBC1704F724003CC7A8 /* extension-deflate-stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "extension-deflate-stream.h"; sourceTree = "<group>"; };
+		6D7E4BBD1704F724003CC7A8 /* extension.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = extension.c; sourceTree = "<group>"; };
+		6D7E4BBE1704F724003CC7A8 /* getifaddrs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = getifaddrs.c; sourceTree = "<group>"; };
+		6D7E4BBF1704F724003CC7A8 /* getifaddrs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getifaddrs.h; sourceTree = "<group>"; };
+		6D7E4BC01704F724003CC7A8 /* handshake.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = handshake.c; sourceTree = "<group>"; };
+		6D7E4BC11704F724003CC7A8 /* libwebsockets.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libwebsockets.c; sourceTree = "<group>"; };
+		6D7E4BC21704F724003CC7A8 /* libwebsockets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libwebsockets.h; sourceTree = "<group>"; };
+		6D7E4BC31704F724003CC7A8 /* output.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = output.c; sourceTree = "<group>"; };
+		6D7E4BC41704F724003CC7A8 /* parsers.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parsers.c; sourceTree = "<group>"; };
+		6D7E4BC51704F724003CC7A8 /* private-libwebsockets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "private-libwebsockets.h"; sourceTree = "<group>"; };
+		6D7E4BC61704F724003CC7A8 /* server-handshake.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "server-handshake.c"; sourceTree = "<group>"; };
+		6D7E4BC71704F724003CC7A8 /* server.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = server.c; sourceTree = "<group>"; };
+		6D7E4BC81704F724003CC7A8 /* sha-1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "sha-1.c"; sourceTree = "<group>"; };
+		6D7E4BE81705E711003CC7A8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = file; path = libz.dylib; sourceTree = "<group>"; };
+		6D7E4BE91705EA32003CC7A8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		AA747D9E0F9514B9006C5449 /* Websocketserver_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Websocketserver_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libWebsocketserver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWebsocketserver.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D7E4BEA1705EA32003CC7A8 /* libz.dylib in Frameworks */,
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libWebsocketserver.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* Web Socket Server */ = {
+			isa = PBXGroup;
+			children = (
+				6D7E4BE91705EA32003CC7A8 /* libz.dylib */,
+				6D7E4BE81705E711003CC7A8 /* libz.dylib */,
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = "Web Socket Server";
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				24DE9E0F11C5FE74003F90F6 /* WebsocketserverModuleAssets.h */,
+				24DE9E1011C5FE74003F90F6 /* WebsocketserverModuleAssets.m */,
+				24DD6CF71134B3F500162E58 /* WebsocketserverModule.h */,
+				24DD6CF81134B3F500162E58 /* WebsocketserverModule.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				6D7E4BB01704F724003CC7A8 /* BLWebSocketsServer */,
+				AA747D9E0F9514B9006C5449 /* Websocketserver_Prefix.pch */,
+				24DD6D1B1134B66800162E58 /* titanium.xcconfig */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		6D7E4BB01704F724003CC7A8 /* BLWebSocketsServer */ = {
+			isa = PBXGroup;
+			children = (
+				6D7E4BB11704F724003CC7A8 /* BLWebSocketsServer.h */,
+				6D7E4BB21704F724003CC7A8 /* BLWebSocketsServer.m */,
+				6D7E4BB31704F724003CC7A8 /* libwebsockets */,
+			);
+			path = BLWebSocketsServer;
+			sourceTree = "<group>";
+		};
+		6D7E4BB31704F724003CC7A8 /* libwebsockets */ = {
+			isa = PBXGroup;
+			children = (
+				6D7E4BB41704F724003CC7A8 /* base64-decode.c */,
+				6D7E4BB51704F724003CC7A8 /* client-handshake.c */,
+				6D7E4BB61704F724003CC7A8 /* client-parser.c */,
+				6D7E4BB71704F724003CC7A8 /* client.c */,
+				6D7E4BB81704F724003CC7A8 /* daemonize.c */,
+				6D7E4BB91704F724003CC7A8 /* extension-deflate-frame.c */,
+				6D7E4BBA1704F724003CC7A8 /* extension-deflate-frame.h */,
+				6D7E4BBB1704F724003CC7A8 /* extension-deflate-stream.c */,
+				6D7E4BBC1704F724003CC7A8 /* extension-deflate-stream.h */,
+				6D7E4BBD1704F724003CC7A8 /* extension.c */,
+				6D7E4BBE1704F724003CC7A8 /* getifaddrs.c */,
+				6D7E4BBF1704F724003CC7A8 /* getifaddrs.h */,
+				6D7E4BC01704F724003CC7A8 /* handshake.c */,
+				6D7E4BC11704F724003CC7A8 /* libwebsockets.c */,
+				6D7E4BC21704F724003CC7A8 /* libwebsockets.h */,
+				6D7E4BC31704F724003CC7A8 /* output.c */,
+				6D7E4BC41704F724003CC7A8 /* parsers.c */,
+				6D7E4BC51704F724003CC7A8 /* private-libwebsockets.h */,
+				6D7E4BC61704F724003CC7A8 /* server-handshake.c */,
+				6D7E4BC71704F724003CC7A8 /* server.c */,
+				6D7E4BC81704F724003CC7A8 /* sha-1.c */,
+			);
+			path = libwebsockets;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA747D9F0F9514B9006C5449 /* Websocketserver_Prefix.pch in Headers */,
+				24DD6CF91134B3F500162E58 /* WebsocketserverModule.h in Headers */,
+				24DE9E1111C5FE74003F90F6 /* WebsocketserverModuleAssets.h in Headers */,
+				6D7E4BC91704F724003CC7A8 /* BLWebSocketsServer.h in Headers */,
+				6D7E4BD11704F724003CC7A8 /* extension-deflate-frame.h in Headers */,
+				6D7E4BD31704F724003CC7A8 /* extension-deflate-stream.h in Headers */,
+				6D7E4BD61704F724003CC7A8 /* getifaddrs.h in Headers */,
+				6D7E4BD91704F724003CC7A8 /* libwebsockets.h in Headers */,
+				6D7E4BDC1704F724003CC7A8 /* private-libwebsockets.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* Web Socket Server */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Web Socket Server" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Web Socket Server";
+			productName = "Web Socket Server";
+			productReference = D2AAC07E0554694100DB518D /* libWebsocketserver.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "Web Socket Server" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* Web Socket Server */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* Web Socket Server */,
+				24416B8111C4CA220047AFDD /* Build & Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24416B8011C4CA220047AFDD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\n\npython \"${TITANIUM_SDK}/titanium.py\" run --dir=\"${PROJECT_DIR}\"\nexit $?\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24DD6CFA1134B3F500162E58 /* WebsocketserverModule.m in Sources */,
+				24DE9E1211C5FE74003F90F6 /* WebsocketserverModuleAssets.m in Sources */,
+				6D7E4BCA1704F724003CC7A8 /* BLWebSocketsServer.m in Sources */,
+				6D7E4BCB1704F724003CC7A8 /* base64-decode.c in Sources */,
+				6D7E4BCC1704F724003CC7A8 /* client-handshake.c in Sources */,
+				6D7E4BCD1704F724003CC7A8 /* client-parser.c in Sources */,
+				6D7E4BCE1704F724003CC7A8 /* client.c in Sources */,
+				6D7E4BCF1704F724003CC7A8 /* daemonize.c in Sources */,
+				6D7E4BD01704F724003CC7A8 /* extension-deflate-frame.c in Sources */,
+				6D7E4BD21704F724003CC7A8 /* extension-deflate-stream.c in Sources */,
+				6D7E4BD41704F724003CC7A8 /* extension.c in Sources */,
+				6D7E4BD51704F724003CC7A8 /* getifaddrs.c in Sources */,
+				6D7E4BD71704F724003CC7A8 /* handshake.c in Sources */,
+				6D7E4BD81704F724003CC7A8 /* libwebsockets.c in Sources */,
+				6D7E4BDA1704F724003CC7A8 /* output.c in Sources */,
+				6D7E4BDB1704F724003CC7A8 /* parsers.c in Sources */,
+				6D7E4BDD1704F724003CC7A8 /* server-handshake.c in Sources */,
+				6D7E4BDE1704F724003CC7A8 /* server.c in Sources */,
+				6D7E4BDF1704F724003CC7A8 /* sha-1.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		24416B8511C4CA280047AFDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC07D0554694100DB518D /* Web Socket Server */;
+			targetProxy = 24416B8411C4CA280047AFDD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				"ARCHS[sdk=iphoneos*]" = (
+					armv6,
+					armv7,
+				);
+				"ARCHS[sdk=iphonesimulator*]" = i386;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DSTROOT = /tmp/Websocketserver.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Websocketserver_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = Websocketserver;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				"ARCHS[sdk=iphoneos*]" = (
+					armv6,
+					armv7,
+				);
+				"ARCHS[sdk=iphonesimulator*]" = i386;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				DSTROOT = /tmp/Websocketserver.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Websocketserver_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = Websocketserver;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				"ARCHS[sdk=iphoneos*]" = (
+					armv6,
+					armv7,
+				);
+				"ARCHS[sdk=iphonesimulator*]" = i386;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DSTROOT = /tmp/Websocketserver.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Websocketserver_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = Websocketserver;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				"ARCHS[sdk=iphoneos*]" = (
+					armv6,
+					armv7,
+				);
+				"ARCHS[sdk=iphonesimulator*]" = i386;
+				DSTROOT = /tmp/Websocketserver.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Websocketserver_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = Websocketserver;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		24416B8211C4CA220047AFDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Build & test";
+			};
+			name = Debug;
+		};
+		24416B8311C4CA220047AFDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Build & test";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Web Socket Server" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "Web Socket Server" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24416B8211C4CA220047AFDD /* Debug */,
+				24416B8311C4CA220047AFDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
