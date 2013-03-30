@@ -9,12 +9,7 @@
 #import "TiHost.h"
 #import "TiUtils.h"
 
-#import "BLWebSocketsServer.h"
 
-
-@interface WebsocketserverModule ()
-    @property (nonatomic, strong) BLWebSocketsServer *server;
-@end
 
 @implementation WebsocketserverModule
 
@@ -93,24 +88,29 @@
 
 #pragma Public APIs
 
--(void) init:(id)args
+-(void) initServer:(id)args
 {
-    ENSURE_UI_THREAD_1_ARG(args);
-    ENSURE_SINGLE_ARG(args, NSDictionary);
+	NSLog(@"[INFO] websocketserver.initServer() %@", args);
+
+//    ENSURE_UI_THREAD_1_ARG(args);
     
+    ENSURE_SINGLE_ARG(args, NSDictionary);
+/*
     id receive = [args objectForKey:@"receive"];
     
     RELEASE_TO_NIL(receiveCallback);
 
     receiveCallback = [receive retain];
+*/    
     
-    
-    NSNumber *port = [TiUtils intValue:[args objectForKey:@"port"]];
+    NSInteger port = [TiUtils intValue:[args objectForKey:@"port"]];
     NSString *protocol = [TiUtils stringValue:[args objectForKey:@"protocol"]];
     
-    self.server = [[BLWebSocketsServer alloc] initWithPort:port andProtocolName:protocol];
-    [self.server setHandleRequestBlock:^NSData *(NSData *data) {
-        [self _fireEventToListener:@"receive" withObject:data listener:receiveCallback thisObject:nil];
+    server = [[BLWebSocketsServer alloc] initWithPort:port andProtocolName:protocol];
+
+    [server setHandleRequestBlock:^NSData *(NSData *data) {
+        NSLog(@"[INFO] data received");
+//        [self _fireEventToListener:@"receive" withObject:data listener:receiveCallback thisObject:nil];
         return data;
     }];
 
@@ -118,12 +118,14 @@
 
 -(void) start:(id)args
 {
-    [self.server start];
+	NSLog(@"[INFO] websocketserver.start()");
+    [server start];
 }
 
 -(void) stop:(id)args
 {
-    [self.server stop];
+	NSLog(@"[INFO] websocketserver.stop()");
+    [server stop];
 }
 
 @end

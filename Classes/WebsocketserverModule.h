@@ -5,11 +5,13 @@
  * and licensed under the Apache Public License (version 2)
  */
 #import "TiModule.h"
+#import "BLWebSocketsServer.h"
 
 @interface WebsocketserverModule : TiModule 
 {
-    KrollCallback *receiveCallback;
+//    KrollCallback *receiveCallback;
 
+    BLWebSocketsServer *server;
 }
 
 

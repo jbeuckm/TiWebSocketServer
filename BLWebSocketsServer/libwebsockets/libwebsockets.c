@@ -22,6 +22,9 @@
 #include "private-libwebsockets.h"
 #include <syslog.h>
 
+#include "daemonize.h"
+
+
 #ifdef WIN32
 #include <tchar.h>
 #include <io.h>
@@ -1489,7 +1492,7 @@ libwebsocket_create_context(int port, const char *interf,
 		return NULL;
 	}
 #ifndef LWS_NO_DAEMONIZE
-	extern int pid_daemon;
+//	extern int pid_daemon;
 	context->started_with_parent = pid_daemon;
 	lwsl_notice(" Started with daemon pid %d\n", pid_daemon);
 #endif

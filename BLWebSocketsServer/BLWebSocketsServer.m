@@ -101,7 +101,7 @@ static int callback_http(struct libwebsocket_context *context,
                                               NULL, NULL, NULL, -1, -1, 0, NULL);
         
         if (context == NULL) {
-            NSLog(@"Initialization of the websockets server failed");
+            NSLog(@"[ERROR] Initialization of the websockets server failed");
         }
         
         /*For now infinite loop which proceses events and wait for n ms. See how we could use poll() or select()*/
@@ -109,7 +109,7 @@ static int callback_http(struct libwebsocket_context *context,
             libwebsocket_service(context, pollingInterval);
         }
         
-        NSLog(@"%@", @"Stopping server");
+        NSLog(@"[INFO] Stopping server");
         libwebsocket_context_destroy(context);
         context = NULL;
         
@@ -153,7 +153,7 @@ int callback(struct libwebsocket_context * this,
     switch (reason) {
         
         case LWS_CALLBACK_ESTABLISHED:
-            NSLog(@"%@", @"Connection established");
+            NSLog(@"[INFO] Connection established");
             _wsi = wsi;
             break;
         

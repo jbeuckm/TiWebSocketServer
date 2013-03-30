@@ -21,7 +21,10 @@
 #include <unistd.h>
 #include <errno.h>
 
-int pid_daemon;
+#include "daemonize.h"
+
+extern int pid_daemon;
+
 static char *lock_path;
 
 static void
