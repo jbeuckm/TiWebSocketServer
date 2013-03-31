@@ -13,6 +13,9 @@ static char * http_only_protocol = "http-only";
 
 struct libwebsocket *_wsi;
 
+id <WebSocketServerDelegate> cDelegate;
+
+
 BLWebSocketsHandleRequestBlock _handleRequestBlock;
 /* Context representing the server*/
 struct libwebsocket_context *context;
@@ -41,10 +44,19 @@ static int callback_http(struct libwebsocket_context *context,
 
 @implementation BLWebSocketsServer
 
+@synthesize delegate;
+
+
 #pragma mark - Custom getters and setters
 - (void)setHandleRequestBlock:(BLWebSocketsHandleRequestBlock)block {
     _handleRequestBlock = block;
 }
+
+- (void)setCDelegate:(id <WebSocketServerDelegate>)d
+{
+    cDelegate = d;
+}
+
 
 #pragma mark - Initialization
 - (id)init {
@@ -118,18 +130,33 @@ static int callback_http(struct libwebsocket_context *context,
 }
 
 
-- (void)broadcast:(NSData *)data
+unsigned char *send_buf;
+int data_length;
+bool data_ready = false;
+
+- (void)asyncSend:(NSData *)data
 {
-    unsigned char *send_buf;
     send_buf = (unsigned char*) malloc(LWS_SEND_BUFFER_PRE_PADDING + data.length +LWS_SEND_BUFFER_POST_PADDING);
 
     bcopy([data bytes], &send_buf[LWS_SEND_BUFFER_PRE_PADDING], data.length);
+    
+    data_length = data.length;
 
+    data_ready = true;
+}
+
+
+
+- (void)send:(NSData *)data
+{
+    send_buf = (unsigned char*) malloc(LWS_SEND_BUFFER_PRE_PADDING + data.length +LWS_SEND_BUFFER_POST_PADDING);
+    
+    bcopy([data bytes], &send_buf[LWS_SEND_BUFFER_PRE_PADDING], data.length);
+    
     libwebsocket_write(_wsi, &send_buf[LWS_SEND_BUFFER_PRE_PADDING], data.length, LWS_WRITE_TEXT);
 
     free(send_buf);
 }
-
 
 
 
@@ -154,12 +181,18 @@ int callback(struct libwebsocket_context * this,
         
         case LWS_CALLBACK_ESTABLISHED:
             NSLog(@"[INFO] Connection established");
+            [cDelegate performSelector:@selector(connectionEstablished)];
             _wsi = wsi;
             break;
         
         case LWS_CALLBACK_RECEIVE: {
             unsigned char *response_buf;
             NSData *data = [NSData dataWithBytes:(const void *)in length:len];
+            
+            [data retain];
+            [cDelegate received:data];
+
+            
             NSData *response = nil;
             if (_handleRequestBlock) {
                 response = _handleRequestBlock(data);
@@ -168,6 +201,20 @@ int callback(struct libwebsocket_context * this,
             bcopy([response bytes], &response_buf[LWS_SEND_BUFFER_PRE_PADDING], response.length);
             libwebsocket_write(wsi, &response_buf[LWS_SEND_BUFFER_PRE_PADDING], len, LWS_WRITE_TEXT);
             free(response_buf);
+            break;
+        }
+            
+        case LWS_CALLBACK_SERVER_WRITEABLE: {
+            if (!data_ready) {
+                libwebsocket_callback_on_writable(context, wsi);
+                return 0;
+            }
+
+            libwebsocket_write(wsi, &send_buf[LWS_SEND_BUFFER_PRE_PADDING], data_length, LWS_WRITE_TEXT);
+            free(send_buf);
+            data_ready = false;
+            
+            libwebsocket_callback_on_writable(context, wsi);
             break;
         }
 

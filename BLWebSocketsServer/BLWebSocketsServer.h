@@ -11,16 +11,36 @@
 
 typedef NSData *(^BLWebSocketsHandleRequestBlock)(NSData * requestData);
 
-@interface BLWebSocketsServer : NSObject
+
+@protocol WebSocketServerDelegate <NSObject>
+
+-(void) connectionEstablished;
+-(void) received:(NSData *)data;
+
+@end
+
+
+
+@interface BLWebSocketsServer : NSObject {
+    
+    id <WebSocketServerDelegate> delegate;
+}
+@property (nonatomic,assign) id<WebSocketServerDelegate> delegate;
+
+
 
 @property (atomic, assign, readonly) BOOL isRunning;
 
 - (id)initWithPort:(int)port andProtocolName:(NSString *)protocolName;
 - (void)start;
 
-- (void)broadcast:(NSData *)data;
+- (void)send:(NSData *)data;
+- (void)asyncSend:(NSData *)data;
 
 - (void)stop;
 - (void)setHandleRequestBlock:(BLWebSocketsHandleRequestBlock)block;
+
+- (void)setCDelegate:(id <WebSocketServerDelegate>)d;
+
 
 @end

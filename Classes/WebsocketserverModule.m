@@ -107,13 +107,22 @@
     [protocol retain];
     
     server = [[BLWebSocketsServer alloc] initWithPort:port andProtocolName:protocol];
+    
+    [server setCDelegate:self];
 
     [server setHandleRequestBlock:^NSData *(NSData *data) {
-//        NSLog(@"[INFO] data received");
-//        [self _fireEventToListener:@"receive" withObject:data listener:receiveCallback thisObject:nil];
+        NSLog(@"[INFO] data received");
         return data;
     }];
 
+}
+
+
+-(void) send:(id)args
+{
+    ENSURE_SINGLE_ARG(args, NSDictionary);
+    NSString *string = [TiUtils stringValue:[args objectForKey:@"data"]];
+    [server send:[string dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
 -(void) start:(id)args
@@ -127,5 +136,20 @@
 	NSLog(@"[INFO] websocketserver.stop()");
     [server stop];
 }
+
+
+#pragma Delegate Methods
+
+-(void) connectionEstablished
+{
+    [self fireEvent:@"connectionEstablished" withObject:nil];
+}
+-(void) received:(NSData *)data
+{
+    NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSDictionary *event = [NSDictionary dictionaryWithObjectsAndKeys: str, @"data", nil];
+    [self _fireEventToListener:@"received" withObject:event listener:receiveCallback thisObject:nil];
+}
+
 
 @end

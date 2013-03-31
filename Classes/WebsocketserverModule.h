@@ -7,7 +7,9 @@
 #import "TiModule.h"
 #import "BLWebSocketsServer.h"
 
-@interface WebsocketserverModule : TiModule 
+
+
+@interface WebsocketserverModule : TiModule <WebSocketServerDelegate>
 {
     KrollCallback *receiveCallback;
 
