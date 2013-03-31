@@ -38,7 +38,7 @@ typedef NSData *(^BLWebSocketsHandleRequestBlock)(NSData * requestData);
 - (void)asyncSend:(NSData *)data;
 
 - (void)stop;
-- (void)setHandleRequestBlock:(BLWebSocketsHandleRequestBlock)block;
+//- (void)setHandleRequestBlock:(BLWebSocketsHandleRequestBlock)block;
 
 - (void)setCDelegate:(id <WebSocketServerDelegate>)d;
 

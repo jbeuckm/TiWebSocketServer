@@ -16,7 +16,7 @@ struct libwebsocket *_wsi;
 id <WebSocketServerDelegate> cDelegate;
 
 
-BLWebSocketsHandleRequestBlock _handleRequestBlock;
+//BLWebSocketsHandleRequestBlock _handleRequestBlock;
 /* Context representing the server*/
 struct libwebsocket_context *context;
 int callback(struct libwebsocket_context * this,
@@ -46,11 +46,12 @@ static int callback_http(struct libwebsocket_context *context,
 
 @synthesize delegate;
 
-
+/*
 #pragma mark - Custom getters and setters
 - (void)setHandleRequestBlock:(BLWebSocketsHandleRequestBlock)block {
     _handleRequestBlock = block;
 }
+*/
 
 - (void)setCDelegate:(id <WebSocketServerDelegate>)d
 {
@@ -67,7 +68,7 @@ static int callback_http(struct libwebsocket_context *context,
 - (id)initWithPort:(int)port andProtocolName:(NSString *)protocolName {
     self = [super init];
     if (self) {
-        _handleRequestBlock = nil;
+//        _handleRequestBlock = nil;
         self.port = port;
         self.protocolName = protocolName;
     }
@@ -192,7 +193,7 @@ int callback(struct libwebsocket_context * this,
             [data retain];
             [cDelegate received:data];
 
-            
+/*
             NSData *response = nil;
             if (_handleRequestBlock) {
                 response = _handleRequestBlock(data);
@@ -201,6 +202,7 @@ int callback(struct libwebsocket_context * this,
             bcopy([response bytes], &response_buf[LWS_SEND_BUFFER_PRE_PADDING], response.length);
             libwebsocket_write(wsi, &response_buf[LWS_SEND_BUFFER_PRE_PADDING], len, LWS_WRITE_TEXT);
             free(response_buf);
+*/
             break;
         }
             

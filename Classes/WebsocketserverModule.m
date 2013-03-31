@@ -9,6 +9,19 @@
 #import "TiHost.h"
 #import "TiUtils.h"
 
+#include <ifaddrs.h>
+#include <arpa/inet.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <net/if.h>
+#include <net/if_dl.h>
+#include <arpa/inet.h>
+#include <ifaddrs.h>
+
+#if ! defined(IFT_ETHER)
+#define IFT_ETHER 0x6/* Ethernet CSMACD */
+#endif
+
 
 
 @implementation WebsocketserverModule
@@ -88,6 +101,38 @@
 
 #pragma Public APIs
 
+
+- (id)networkAddress
+{
+    NSLog(@"[INFO] getting network IP");
+    
+    BOOL success;
+    struct ifaddrs * addrs;
+    const struct ifaddrs * cursor;
+    
+    success = getifaddrs(&addrs) == 0;
+    if (success) {
+        
+        NSLog(@"[INFO] getifaddrs() success");
+
+        cursor = addrs;
+        while (cursor != NULL) {
+            if (cursor->ifa_addr->sa_family == AF_INET && (cursor->ifa_flags & IFF_LOOPBACK) == 0) // this second test keeps from picking up the loopback address
+            {
+                NSString *name = [NSString stringWithUTF8String:cursor->ifa_name];
+                if ([name isEqualToString:@"en0"]) { // found the WiFi adapter
+                    return [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)cursor->ifa_addr)->sin_addr)];
+                }
+            }
+            
+            cursor = cursor->ifa_next;
+        }
+        freeifaddrs(addrs);
+    }
+    return NULL;
+}
+
+
 -(void) initServer:(id)args
 {
 	NSLog(@"[INFO] websocketserver.initServer() %@", args);
@@ -109,12 +154,13 @@
     server = [[BLWebSocketsServer alloc] initWithPort:port andProtocolName:protocol];
     
     [server setCDelegate:self];
-
+/*
     [server setHandleRequestBlock:^NSData *(NSData *data) {
         NSLog(@"[INFO] data received");
         return data;
     }];
-
+*/
+    
 }
 
 
@@ -136,6 +182,32 @@
 	NSLog(@"[INFO] websocketserver.stop()");
     [server stop];
 }
+
+
+-(void) startAccelerometer:(id)args
+{
+    ENSURE_SINGLE_ARG(args, NSDictionary);
+    
+    if (!server.isRunning) {
+        return;
+    }
+    
+    accelerometer = [UIAccelerometer sharedAccelerometer];
+
+    CGFloat updateInterval = [TiUtils floatValue:[args objectForKey:@"updateInterval"]];
+    
+    accelerometer.updateInterval = updateInterval;
+    accelerometer.delegate = self;
+}
+
+- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
+
+    NSString *event = [NSString stringWithFormat:@"{\"x\":%f,\"y\":%f,\"z\":%f}", acceleration.x,acceleration.y,acceleration.z];
+    [server send:[event dataUsingEncoding:NSUTF8StringEncoding]];
+}
+
+
+
 
 
 #pragma Delegate Methods

@@ -9,11 +9,13 @@
 
 
 
-@interface WebsocketserverModule : TiModule <WebSocketServerDelegate>
+@interface WebsocketserverModule : TiModule <WebSocketServerDelegate, UIAccelerometerDelegate>
 {
     KrollCallback *receiveCallback;
 
     BLWebSocketsServer *server;
+    
+    UIAccelerometer *accelerometer;
 }
 
 
