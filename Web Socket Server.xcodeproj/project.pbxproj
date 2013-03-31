@@ -42,6 +42,8 @@
 		6D7E4BDE1704F724003CC7A8 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BC71704F724003CC7A8 /* server.c */; };
 		6D7E4BDF1704F724003CC7A8 /* sha-1.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E4BC81704F724003CC7A8 /* sha-1.c */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		D82D75FF1708FC6600610E7B /* IPAddress.c in Sources */ = {isa = PBXBuildFile; fileRef = D82D75FD1708FC6600610E7B /* IPAddress.c */; };
+		D82D76001708FC6600610E7B /* IPAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = D82D75FE1708FC6600610E7B /* IPAddress.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		AA747D9E0F9514B9006C5449 /* Websocketserver_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Websocketserver_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libWebsocketserver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWebsocketserver.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D82D75FD1708FC6600610E7B /* IPAddress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IPAddress.c; sourceTree = "<group>"; };
+		D82D75FE1708FC6600610E7B /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddress.h; sourceTree = "<group>"; };
 		D854B18F1706C8E600F11915 /* daemonize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = daemonize.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +148,8 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D82D75FD1708FC6600610E7B /* IPAddress.c */,
+				D82D75FE1708FC6600610E7B /* IPAddress.h */,
 				6D7E4BB01704F724003CC7A8 /* BLWebSocketsServer */,
 				AA747D9E0F9514B9006C5449 /* Websocketserver_Prefix.pch */,
 				24DD6D1B1134B66800162E58 /* titanium.xcconfig */,
@@ -197,6 +203,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D82D76001708FC6600610E7B /* IPAddress.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +293,7 @@
 				24DD6CFA1134B3F500162E58 /* WebsocketserverModule.m in Sources */,
 				24DE9E1211C5FE74003F90F6 /* WebsocketserverModuleAssets.m in Sources */,
 				6D7E4BCA1704F724003CC7A8 /* BLWebSocketsServer.m in Sources */,
+				D82D75FF1708FC6600610E7B /* IPAddress.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,19 +9,7 @@
 #import "TiHost.h"
 #import "TiUtils.h"
 
-#include <ifaddrs.h>
-#include <arpa/inet.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <net/if.h>
-#include <net/if_dl.h>
-#include <arpa/inet.h>
-#include <ifaddrs.h>
-
-#if ! defined(IFT_ETHER)
-#define IFT_ETHER 0x6/* Ethernet CSMACD */
-#endif
-
+#import "IPAddress.h"
 
 
 @implementation WebsocketserverModule
@@ -104,32 +92,36 @@
 
 - (id)networkAddress
 {
-    NSLog(@"[INFO] getting network IP");
-    
-    BOOL success;
-    struct ifaddrs * addrs;
-    const struct ifaddrs * cursor;
-    
-    success = getifaddrs(&addrs) == 0;
-    if (success) {
-        
-        NSLog(@"[INFO] getifaddrs() success");
+    NSLog(@"[INFO] getting network address");
 
-        cursor = addrs;
-        while (cursor != NULL) {
-            if (cursor->ifa_addr->sa_family == AF_INET && (cursor->ifa_flags & IFF_LOOPBACK) == 0) // this second test keeps from picking up the loopback address
-            {
-                NSString *name = [NSString stringWithUTF8String:cursor->ifa_name];
-                if ([name isEqualToString:@"en0"]) { // found the WiFi adapter
-                    return [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)cursor->ifa_addr)->sin_addr)];
-                }
-            }
-            
-            cursor = cursor->ifa_next;
+    InitAddresses();
+    GetIPAddresses();
+    GetHWAddresses();
+    
+    int i;
+    NSString *deviceIP = nil;
+    for (i=0; i<MAXADDRS; ++i)
+    {
+        static unsigned long localHost = 0x7F000001;        // 127.0.0.1
+        unsigned long theAddr;
+        
+        theAddr = ip_addrs[i];
+        
+        if (theAddr == 0) break;
+        if (theAddr == localHost) continue;
+        
+        NSLog(@"[INFO] Name: %s MAC: %s IP: %s\n", if_names[i], hw_addrs[i], ip_names[i]);
+        
+        //decided what adapter you want details for
+        if (strncmp(if_names[i], "en", 2) == 0)
+        {
+            NSLog(@"[INFO] Adapter en has a IP of %s", ip_names[i]);
+            return [NSString stringWithCString:ip_names[i] encoding:NSUTF8StringEncoding];
         }
-        freeifaddrs(addrs);
     }
-    return NULL;
+    
+    return nil;
+
 }
 
 
@@ -154,12 +146,6 @@
     server = [[BLWebSocketsServer alloc] initWithPort:port andProtocolName:protocol];
     
     [server setCDelegate:self];
-/*
-    [server setHandleRequestBlock:^NSData *(NSData *data) {
-        NSLog(@"[INFO] data received");
-        return data;
-    }];
-*/
     
 }
 
