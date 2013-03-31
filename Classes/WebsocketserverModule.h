@@ -9,7 +9,7 @@
 
 @interface WebsocketserverModule : TiModule 
 {
-//    KrollCallback *receiveCallback;
+    KrollCallback *receiveCallback;
 
     BLWebSocketsServer *server;
 }

@@ -92,24 +92,24 @@
 {
 	NSLog(@"[INFO] websocketserver.initServer() %@", args);
 
-//    ENSURE_UI_THREAD_1_ARG(args);
-    
     ENSURE_SINGLE_ARG(args, NSDictionary);
-/*
+
     id receive = [args objectForKey:@"receive"];
     
     RELEASE_TO_NIL(receiveCallback);
 
     receiveCallback = [receive retain];
-*/    
-    
+
+ 
     NSInteger port = [TiUtils intValue:[args objectForKey:@"port"]];
     NSString *protocol = [TiUtils stringValue:[args objectForKey:@"protocol"]];
+    
+    [protocol retain];
     
     server = [[BLWebSocketsServer alloc] initWithPort:port andProtocolName:protocol];
 
     [server setHandleRequestBlock:^NSData *(NSData *data) {
-        NSLog(@"[INFO] data received");
+//        NSLog(@"[INFO] data received");
 //        [self _fireEventToListener:@"receive" withObject:data listener:receiveCallback thisObject:nil];
         return data;
     }];
