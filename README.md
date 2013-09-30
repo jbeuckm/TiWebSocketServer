@@ -19,11 +19,19 @@ server.initServer({
 
 server.addEventListener('connectionEstablished', function(){
     Ti.API.info('connectionEstablished');
-    server.startAccelerometer({ updateInterval: .05 });
 });
 
 server.start();
 
+```
+
+### Bonus! ###
+
+This module has an auxilliary accelerometer reader that can be set to a faster interval than the stock Titanium one.
+
+```javascript
+
+server.startAccelerometer({ updateInterval: .05 });
 
 server.addEventListener('accelerometer', function(data){
     Ti.API.info(data.x+','+data.y+','+data.z)
