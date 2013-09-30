@@ -3,6 +3,8 @@ TiWebSocketServer
 
 Titanium module wrapper for Benjamin Loulier's BLWebSocketsServer
 
+### Usage: ###
+
 ```javascript
 
 var server = require('websocketserver');
