@@ -1,7 +1,7 @@
 language: objective-c
 env:
  global:
-   - "MODULE_NAME=org.beuckman.tiwebsocketserver" 
+   - "MODULE_NAME=websocketserver" 
 before_install:
     - MODULE_ROOT=$PWD
 install:
