@@ -1,5 +1,6 @@
 TiWebSocketServer
 =================
+[![Build Status](https://travis-ci.org/jbeuckm/TiWebSocketServer.png)](https://travis-ci.org/jbeuckm/TiWebSocketServer)
 
 Titanium module wrapper for Benjamin Loulier's BLWebSocketsServer
 
